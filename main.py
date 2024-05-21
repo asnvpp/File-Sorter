@@ -1,11 +1,11 @@
-import os
-import shutil
+import shutil, os, time, sched
 import watchdog.observers as wd
 from watchdog.events import FileSystemEventHandler, FileSystemEvent
 
 
 folderNames = ["images", "videos", "documents", "music", "other", "coding"]
 options = ["Watch Dir", "List directory", "Exit"]
+events_schedule = sched.scheduler(time.time, time.sleep)
 
 
 class eventLogger(FileSystemEventHandler):
